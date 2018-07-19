@@ -7,7 +7,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |email|string|null: false, unique: true|
-|name|string|null: false, unique: true|
+|name|string|null: false, index: true|
 
 #### Association
 - has_many :members
