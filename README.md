@@ -14,7 +14,7 @@
 - has_many :members
 - has_many :messages
 
-### gropusテーブル
+### groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
