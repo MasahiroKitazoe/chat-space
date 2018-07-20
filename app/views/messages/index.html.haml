@@ -37,3 +37,10 @@
             %p{class: "chat-message__time"}2018/07/20 08:26:28
           %p{class: "chat-message__body"}i am groot
     .chat-footer
+      %form.new_message#new_message
+        .chat-footer__body
+          %textarea{row: 1, placeholder: "type a message", name: "message", id: "message_body"}
+          %label{class: "chat-footer__file"}
+            %input{type: "file", id: "message_image"}
+            %i{class: "fa fa-image"}
+        %input{type: "submit", value: "Send"}
