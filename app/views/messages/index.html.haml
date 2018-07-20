@@ -6,15 +6,15 @@
       %h5 groot
       .chat-user__actions
         = link_to root_path, { class: "chat-user__actions__action" } do
-          %i{class: "fa fa-pencil-square-o"}
+          %i.fa.fa-pencil-square-o
         = link_to root_path, { class: "chat-user__actions__action" } do
-          %i{class: "fa fa-cog"}
-    %ul{class: "chat-groups"}
-      %li{class: "chat-group"}
+          %i.fa.fa-cog
+    %ul.chat-groups
+      %li.chat-groupS
         = link_to root_path, { class: "chat-group__link" } do
           %p.chat-group__link__name gardians of galaxy
           %p.chat-group__link__message i am groot
-      %li{class: "chat-group"}
+      %li.chat-group
         = link_to root_path, { class: "chat-group__link" } do
           %p.chat-group__link__namefreaking gardians of galaxy
           %p.chat-group__link__message i am groot
