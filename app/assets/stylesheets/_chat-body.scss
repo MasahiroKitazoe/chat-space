@@ -1,8 +1,37 @@
 .chat{
   .chat-main{
-    float: left;
-    height: 100%;
-    width: calc(100% - 300px);
-    position: relative;
+    .chat-body{
+      position: relative;
+      height: calc(100% - 100px);
+      background-color: #fafafa;
+      padding-right: 40px;
+      padding-left: 40px;
+      .chat-messages{
+        padding-top: 46px;
+        .chat-message{
+          margin-bottom: 40px;
+          .chat-message__header{
+            margin-bottom: 10px;
+            @include clearfix();
+            .chat-message__name{
+              float: left;
+              margin: 0;
+              font-weight: bold;
+              color: #434A54;
+            }
+            .chat-message__time{
+              float: left;
+              color: #AAA;
+              font-size: 12px;
+              margin-left: 10px;
+              margin-top: 4px;
+            }
+          }
+          .chat-message__body{
+            font-size: 14px;
+          }
+        }
+      }
+    }
   }
 }
