@@ -1,1 +1,14 @@
-%p hello world
+.chat
+  .chat-side
+    .chat-user
+      %h5 hello world
+      .chat-user__actions
+        %a{class: "chat-user__action", :href => "/"}
+          %i{class: "fa fa-pencil-square-o"}
+        %a{class: "chat-user__action", :href => "/"}
+          %i{class: "fa fa-cog"}
+
+  .chat-main
+    .chat-header
+    .chat-body
+    .chat-footer
