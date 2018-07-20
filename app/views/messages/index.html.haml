@@ -7,21 +7,17 @@
       .chat-user__actions
         = link_to root_path, { class: "chat-user__actions__action" } do
           %i{class: "fa fa-pencil-square-o"}
-        %end
         = link_to root_path, { class: "chat-user__actions__action" } do
           %i{class: "fa fa-cog"}
-        %end
     %ul{class: "chat-groups"}
       %li{class: "chat-group"}
         = link_to root_path, { class: "chat-group__link" } do
           %p{class: "chat-group__link__name"}gardians of galaxy
           %p{class: "chat-group__link__message"}i am groot
-        %end
       %li{class: "chat-group"}
         = link_to root_path, { class: "chat-group__link" } do
           %p{class: "chat-group__link__name"}freaking gardians of galaxy
           %p{class: "chat-group__link__message"}i am groot
-        %end
 
   .chat-main
     %div{class: "chat-header clearfix"}
