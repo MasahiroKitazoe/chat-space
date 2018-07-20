@@ -18,6 +18,11 @@
           %p{class: "chat-group__message"}i am groot
 
   .chat-main
-    .chat-header
+    %div{class: "chat-header clearfix"}
+      .chat-header__left
+        %h2 freaking gardians of galaxy
+        .chat-header__members Member: star lord, gamora, rocket, groot, drax, yondu
+      .chat-header__right
+        %a{class: "chat-header__edit_btn", href: "/"} Edit
     .chat-body
     .chat-footer
