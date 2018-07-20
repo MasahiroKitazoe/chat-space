@@ -5,17 +5,19 @@
     .chat-user
       %h5 groot
       .chat-user__actions
-        %a{class: "chat-user__actions__action", :href => "/"}
+        = link_to "/", { class: "chat-user__actions__action" } do
           %i{class: "fa fa-pencil-square-o"}
-        %a{class: "chat-user__actions__action", :href => "/"}
+        %end
+        = link_to "/", { class: "chat-user__actions__action" } do
           %i{class: "fa fa-cog"}
+        %end
     %ul{class: "chat-groups"}
       %li{class: "chat-group"}
-        %a{class: "chat-group__link", href: "/"}
+        = link_to "/", { class: "chat-group__link" }
           %p{class: "chat-group__link__name"}gardians of galaxy
           %p{class: "chat-group__link__message"}i am groot
       %li{class: "chat-group"}
-        %a{class: "chat-group__link", href: "/"}
+        = link_to "/", { class: "chat-group__link" }
           %p{class: "chat-group__link__name"}freaking gardians of galaxy
           %p{class: "chat-group__link__message"}i am groot
 
@@ -25,7 +27,7 @@
         %h2 freaking gardians of galaxy
         .chat-header__left__members Member: star lord, gamora, rocket, groot, drax, yondu
       .chat-header__right
-        %a{class: "chat-header__right__edit_btn", href: "/"} Edit
+        = link_to "/", { class: "chat-header__right__edit_btn" } Edit
     .chat-body
       %ul{class: "chat-messages"}
         %li{class: "chat-message"}
