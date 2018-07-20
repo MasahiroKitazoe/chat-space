@@ -1,7 +1,25 @@
 .chat {
   .chat-side {
     .chat-groups {
-      
+      .chat-group{
+        .chat-group__link{
+          padding: 20px 20px;
+          display: block;
+          p{
+            color: #FFFFFF;
+          }
+          .chat-group__name{
+            font-size: 15px;
+            font-weight: bold;
+          }
+          .chat-group__message{
+            font-size: 11px;
+          }
+        }
+        .chat-group__link:hover{
+          background-color: #384a62;
+        }
+      }
     }
   }
 }
