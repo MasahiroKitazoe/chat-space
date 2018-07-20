@@ -10,7 +10,7 @@
         padding-top: 46px;
         .chat-message{
           margin-bottom: 40px;
-          .chat-message__header{
+          &__header{
             margin-bottom: 10px;
             @include clearfix();
             .chat-message__name{
@@ -27,7 +27,7 @@
               margin-top: 4px;
             }
           }
-          .chat-message__body{
+          &__body{
             font-size: 14px;
           }
         }

@@ -5,27 +5,27 @@
     .chat-user
       %h5 groot
       .chat-user__actions
-        %a{class: "chat-user__action", :href => "/"}
+        %a{class: "chat-user__actions__action", :href => "/"}
           %i{class: "fa fa-pencil-square-o"}
-        %a{class: "chat-user__action", :href => "/"}
+        %a{class: "chat-user__actions__action", :href => "/"}
           %i{class: "fa fa-cog"}
     %ul{class: "chat-groups"}
       %li{class: "chat-group"}
         %a{class: "chat-group__link", href: "/"}
-          %p{class: "chat-group__name"}gardians of galaxy
-          %p{class: "chat-group__message"}i am groot
+          %p{class: "chat-group__link__name"}gardians of galaxy
+          %p{class: "chat-group__link__message"}i am groot
       %li{class: "chat-group"}
         %a{class: "chat-group__link", href: "/"}
-          %p{class: "chat-group__name"}freaking gardians of galaxy
-          %p{class: "chat-group__message"}i am groot
+          %p{class: "chat-group__link__name"}freaking gardians of galaxy
+          %p{class: "chat-group__link__message"}i am groot
 
   .chat-main
     %div{class: "chat-header clearfix"}
       .chat-header__left
         %h2 freaking gardians of galaxy
-        .chat-header__members Member: star lord, gamora, rocket, groot, drax, yondu
+        .chat-header__left__members Member: star lord, gamora, rocket, groot, drax, yondu
       .chat-header__right
-        %a{class: "chat-header__edit_btn", href: "/"} Edit
+        %a{class: "chat-header__right__edit_btn", href: "/"} Edit
     .chat-body
       %ul{class: "chat-messages"}
         %li{class: "chat-message"}

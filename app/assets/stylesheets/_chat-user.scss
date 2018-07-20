@@ -13,10 +13,10 @@
         line-height: 5.25;
         letter-spacing: 2px;
       }
-      .chat-user__actions {
+      &__actions {
         float: right;
         padding-right: 20px;
-        .chat-user__action {
+        &__action {
           i{
             color: #FFF;
             font-size: 20px;

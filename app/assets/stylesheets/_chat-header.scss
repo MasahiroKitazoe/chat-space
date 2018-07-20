@@ -6,7 +6,7 @@
       padding-right: 40px;
       padding-left: 40px;
       @include clearfix();
-      .chat-header__left{
+      &__left{
         float: left;
         h2{
           letter-spacing: 2px;
@@ -16,15 +16,15 @@
           line-height: 50px;
           margin-top: 15px;
         }
-        .chat-header__members{
+        &__members{
         font-size: 12px;
         line-height: 1;
         color: #999;
         }
       }
-      .chat-header__right{
+      &__right{
         float: right;
-        .chat-header__edit_btn{
+        &__edit_btn{
           margin-top: 28px;
           margin-right: 20px;
           border: 2px solid;
