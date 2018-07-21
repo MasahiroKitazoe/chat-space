@@ -1,0 +1,37 @@
+.chat{
+  .chat-main{
+    .chat-body{
+      position: relative;
+      height: calc(100% - 190px);
+      background-color: #fafafa;
+      padding-right: 40px;
+      padding-left: 40px;
+      .chat-messages{
+        padding-top: 46px;
+        .chat-message{
+          margin-bottom: 40px;
+          &__header{
+            margin-bottom: 10px;
+            @include clearfix();
+            .chat-message__name{
+              float: left;
+              margin: 0;
+              font-weight: bold;
+              color: #434A54;
+            }
+            .chat-message__time{
+              float: left;
+              color: #AAA;
+              font-size: 12px;
+              margin-left: 10px;
+              margin-top: 4px;
+            }
+          }
+          &__body{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.chat{
+  .flash{
+    height: 30px;
+    background-color: #38AEF0;
+    &__message{
+      text-align: center;
+      color: $color-white;
+    }
+  }
+}

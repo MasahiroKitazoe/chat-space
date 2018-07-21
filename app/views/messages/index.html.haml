@@ -1,0 +1,48 @@
+.chat
+  .flash
+    %p.flash__message チャットグループが作成されました。
+  .chat-side
+    .chat-user
+      %h5 groot
+      .chat-user__actions
+        = link_to '#', class: "chat-user__actions__action"  do
+          = fa_icon "pencil-square-o"
+        = link_to '#', class: "chat-user__actions__action" do
+          = fa_icon "fa-cog"
+    %ul.chat-groups
+      %li.chat-groupS
+        = link_to '#', class: "chat-group__link" do
+          %p.chat-group__link__name gardians of galaxy
+          %p.chat-group__link__message i am groot
+      %li.chat-group
+        = link_to '#', class: "chat-group__link" do
+          %p.chat-group__link__namefreaking gardians of galaxy
+          %p.chat-group__link__message i am groot
+
+  .chat-main
+    .chat-header.clearfix
+      .chat-header__left
+        %h2 freaking gardians of galaxy
+        .chat-header__left__members Member: star lord, gamora, rocket, groot, drax, yondu
+      .chat-header__right
+        = link_to "Edit", '#', class: "chat-header__right__edit--btn"
+    .chat-body
+      %ul.chat-messages
+        %li.chat-message
+          .chat-message__header
+            %p.chat-message__name groot
+            %p.chat-message__time 2018/07/20 08:26:28
+          %p.chat-message__body i am groot
+        %li.chat-message
+          .chat-message__header
+            %p.chat-message__name groot
+            %p.chat-message__time 2018/07/20 08:26:28
+          %p.chat-message__body i am groot
+    .chat-footer
+      %form.new_message#new_message
+        .chat-footer__body
+          %textarea{row: 1, placeholder: "type a message", name: "message", id: "message_body"}
+          %label.chat-footer__file
+            %input{type: "file", id: "message_image"}
+            = fa_icon "image"
+        %input{type: "submit", value: "Send"}
