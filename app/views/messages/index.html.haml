@@ -5,17 +5,17 @@
     .chat-user
       %h5 groot
       .chat-user__actions
-        = link_to '#', { class: "chat-user__actions__action" } do
+        = link_to '#', class: "chat-user__actions__action"  do
           = fa_icon "pencil-square-o"
-        = link_to '#', { class: "chat-user__actions__action" } do
+        = link_to '#', class: "chat-user__actions__action" do
           = fa_icon "fa-cog"
     %ul.chat-groups
       %li.chat-groupS
-        = link_to '#', { class: "chat-group__link" } do
+        = link_to '#', class: "chat-group__link" do
           %p.chat-group__link__name gardians of galaxy
           %p.chat-group__link__message i am groot
       %li.chat-group
-        = link_to '#', { class: "chat-group__link" } do
+        = link_to '#', class: "chat-group__link" do
           %p.chat-group__link__namefreaking gardians of galaxy
           %p.chat-group__link__message i am groot
 
@@ -25,7 +25,7 @@
         %h2 freaking gardians of galaxy
         .chat-header__left__members Member: star lord, gamora, rocket, groot, drax, yondu
       .chat-header__right
-        = link_to "Edit", '#', { class: "chat-header__right__edit--btn" }
+        = link_to "Edit", '#', class: "chat-header__right__edit--btn"
     .chat-body
       %ul.chat-messages
         %li.chat-message
