@@ -6,9 +6,9 @@
       %h5 groot
       .chat-user__actions
         = link_to '#', { class: "chat-user__actions__action" } do
-          %i.fa.fa-pencil-square-o
+          = fa_icon "pencil-square-o"
         = link_to '#', { class: "chat-user__actions__action" } do
-          %i.fa.fa-cog
+          = fa_icon "fa-cog"
     %ul.chat-groups
       %li.chat-groupS
         = link_to '#', { class: "chat-group__link" } do
@@ -44,5 +44,5 @@
           %textarea{row: 1, placeholder: "type a message", name: "message", id: "message_body"}
           %label.chat-footer__file
             %input{type: "file", id: "message_image"}
-            %i.fa.fa-image
+            = fa_icon "image"
         %input{type: "submit", value: "Send"}
