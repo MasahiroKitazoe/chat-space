@@ -1,5 +1,6 @@
 @import "config/colors";
 @import "modules/flash";
+@import "modules/group";
 @import 'font-awesome';
 @import "./clearfix";
 @import "./reset";
@@ -11,7 +12,6 @@
 @import "./chat-body";
 @import "./chat-footer";
 @import "./user";
-@import "./group";
 
 html{
   height: 100%;
