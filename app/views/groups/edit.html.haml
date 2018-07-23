@@ -1,11 +1,12 @@
-z.chat-group-form
+.chat-group-form
   %h1 チャットグループ編集
   = form_for @group do |f|
-    .chat-group-form__errors
-      %h2
-        1件のエラーが発生しました。
+    - if @group.errors.any?
+      .chat-group-form__errors
+        %h2= "#{@group.errors.full_messages.count}件のエラーが発生しました。"
         %ul
-          %li エラーです
+          - @group.errors.full_messages.each do |message|
+            %li= message
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label :グループ名, html: {class: "chat-group-form__label"}
