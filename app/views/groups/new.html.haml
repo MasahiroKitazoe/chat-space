@@ -1,20 +1,17 @@
 .chat-group-form
   %h1 新規チャットグループ
   = form_for@group do |f|
-    .chat-group-form__errors
-      - if @group.errors.present?
-        %h2
-          = @group.errors.size.to_s + "件のエラーが発生しました。"
+    - if @group.errors.any?
+      .chat-group-form__errors
+        %h2= "#{@group.errors.full_messages.count}件のエラーが発生しました。"
         %ul
-          %li
-            =  @group.errors.full_messages
-    .chat-group-form__field.clearfix
+          - @group.errors.full_messages.each do |message|
+            %li= message
+    .chat-group-form__field
       .chat-group-form__field--left
-        = f.label :グループ名, html: {class: "chat-group-form__label"}
-        / %label.chat-group-form__label{for: "chat_group_name"} グループ名
+        = f.label :name, class: 'chat-group-form__label'
       .chat-group-form__field--right
-        = f.text_field :name, html: {id: "chat_group_name", class: "chat-group-form__input"}, placeholder: "グループ名を入力してください", type: "text"
-        / %input#chat_group_name.chat-group-form__input{name: "chat_group[name]", placeholder: "グループ名を入力してください", type: "text"}/
+        = f.text_field :name, class: 'chat_group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
     .chat-group-form__field.clearfix
       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
       /
@@ -29,11 +26,9 @@
         </div>
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        =f.label :チャットメンバー, html: {class: "chat-group-form__label"}
-        / %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
+        %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
       .chat-group-form__field--right
-        = collection_check_boxes(:group, :user_ids, User.all, :id, :name) do |b|
-          = b.label { b.check_box + b.text }
+        = collection_check_boxes :group, :user_ids, User.all, :id, :name
         / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
         /
           <div id='chat-group-users'>
@@ -45,4 +40,4 @@
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
-        = f.submit :save, html: {class: "chat-group-form__action-btn"}
+        = f.submit class: 'chat-group-form__action-btn'
