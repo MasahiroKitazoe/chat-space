@@ -10,8 +10,11 @@ class GroupsController < ApplicationController
   end
 
   def create
-    Group.create(group_params)
-    redirect_to :root
+    if Group.create(group_params)
+      flash[:notice] = "グループを作成しました"
+      redirect_to :root
+    else
+      
   end
 
     private
