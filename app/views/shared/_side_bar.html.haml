@@ -11,4 +11,5 @@
       %li.chat-groupS
         = link_to group_messages_path(group.id), class: "chat-group__link" do
           %p.chat-group__link__name= group.name
-          %p.chat-group__link__message i am groot
+          %p.chat-group__link__message
+            =group.show_last_message
