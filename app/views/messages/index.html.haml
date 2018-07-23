@@ -9,14 +9,11 @@
         = link_to edit_user_path(current_user.id), class: "chat-user__actions__action" do
           = fa_icon "cog"
     %ul.chat-groups
-      %li.chat-groupS
-        = link_to '#', class: "chat-group__link" do
-          %p.chat-group__link__name gardians of galaxy
-          %p.chat-group__link__message i am groot
-      %li.chat-group
-        = link_to '#', class: "chat-group__link" do
-          %p.chat-group__link__namefreaking gardians of galaxy
-          %p.chat-group__link__message i am groot
+      - current_user.groups.each do |group|
+        %li.chat-groupS
+          = link_to '#', class: "chat-group__link" do
+            %p.chat-group__link__name= group.name
+            %p.chat-group__link__message i am groot
 
   .chat-main
     .chat-header.clearfix
