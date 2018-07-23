@@ -1,31 +1,22 @@
-
 .chat
   = render 'shared/side_bar'
 
   .chat-main
     .chat-header.clearfix
       .chat-header__left
-        %h2 freaking gardians of galaxy
+        %h2= @group.name
         .chat-header__left__members Member: star lord, gamora, rocket, groot, drax, yondu
       .chat-header__right
-        = link_to "Edit", "#", class: "chat-header__right__edit--btn"
+        = link_to "Edit", edit_group_path(@group.id), class: "chat-header__right__edit--btn"
     .chat-body
       %ul.chat-messages
-        %li.chat-message
-          .chat-message__header
-            %p.chat-message__name groot
-            %p.chat-message__time 2018/07/20 08:26:28
-          %p.chat-message__body i am groot
-        %li.chat-message
-          .chat-message__header
-            %p.chat-message__name groot
-            %p.chat-message__time 2018/07/20 08:26:28
-          %p.chat-message__body i am groot
+        = render @messages
     .chat-footer
-      %form.new_message#new_message
+      = form_for [@group, @message], class: "new_message", id: "new_message" do |f|
         .chat-footer__body
-          %textarea{row: 1, placeholder: "type a message", name: "message", id: "message_body"}
+          = f.text_area :body, row: 1, placeholder: "type a message", id: "message_body"
+          / = f.label.chat-footer__file
           %label.chat-footer__file
-            %input{type: "file", id: "message_image"}
+            = f.file_field :image, id: "message_image"
             = fa_icon "image"
-        %input{type: "submit", value: "Send"}
+        = f.submit "Send"
