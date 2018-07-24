@@ -46,6 +46,9 @@ RSpec.configure do |config|
   #     RSpec.describe UsersController, :type => :controller do
   #       # ...
   #     end
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include ControllerMacros, type: :controller
   #
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
