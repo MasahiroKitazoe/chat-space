@@ -1,3 +1,4 @@
 json.body  @message.body
-json.body  @message.image
-json.user_name  @message.user.name
+json.image  @message.image
+json.name  @message.user.name
+json.created_at @message.created_at
