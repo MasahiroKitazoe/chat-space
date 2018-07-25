@@ -17,13 +17,13 @@ class GroupsController < ApplicationController
     if @group.save
       save_success("グループを作成しました")
     else
+      binding.pry
       render action: :new
     end
   end
 
   def update
     @group = Group.find(params[:id])
-    binding.pry
     if @group.update_attributes(group_params)
       save_success("グループ情報を更新しました")
     else
