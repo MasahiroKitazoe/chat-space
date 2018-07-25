@@ -69,4 +69,10 @@ $(function() {
     $(this).parent().remove()
     appendMember(member)
   })
+
+  $(document).on("click", ".js-remove-btn", function(){
+    $(this).parent().remove()
+    appendMember(member)
+  })
 });
+

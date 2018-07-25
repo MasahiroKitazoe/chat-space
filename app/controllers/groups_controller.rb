@@ -17,7 +17,6 @@ class GroupsController < ApplicationController
     if @group.save
       save_success("グループを作成しました")
     else
-      binding.pry
       render action: :new
     end
   end
