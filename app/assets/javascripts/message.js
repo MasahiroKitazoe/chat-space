@@ -52,7 +52,7 @@ $(function(){
     })
 
     .always(function(){
-  $("#message-submit").removeAttr("disabled");
-});
+      $("#message-submit").removeAttr("disabled");
+    });
   })
 });
