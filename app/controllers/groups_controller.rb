@@ -23,7 +23,6 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
-    binding.pry
     if @group.update_attributes(group_params)
       save_success("グループ情報を更新しました")
     else
