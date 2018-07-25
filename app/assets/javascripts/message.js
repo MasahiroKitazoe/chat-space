@@ -6,6 +6,7 @@ $(function(){
                     <p class='chat-message__time'>${message.created_at}</p>
                   </div>
                     <p class='chat-message__body'>${message.body}</p>
+                    <p class='chat-message__body'>${message.image}</p>
                 </li>
                 `
     return html;
@@ -14,7 +15,7 @@ $(function(){
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var group_id = 
+    var group_id = gon.group_id
     $.ajax({
       type: "POST",
       url: "/groups/${group_id}/messages",
