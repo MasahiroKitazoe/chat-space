@@ -9,7 +9,12 @@ $(function(){
                                </p>
                                `
     }
+    console.log(message.body);
 
+    if (message.image.url === null && message.body === "") {
+      var html = ``
+      alert('メッセージを入力してから送信してください')
+    } else {
     var html = `<li class='chat-message'>
                   <div class='chat-message__header'>
                     <p class='chat-message__name'>${message.name}</p>
@@ -18,6 +23,7 @@ $(function(){
                     ${message_body_html}
                 </li>
                 `
+    }
     return html;
   }
 
