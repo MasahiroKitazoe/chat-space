@@ -15,7 +15,6 @@
       = form_for [@group, @message], class: "new_message", id: "new_message" do |f|
         .chat-footer__body
           = f.text_area :body, row: 1, placeholder: "type a message", id: "message_body"
-          / = f.label.chat-footer__file
           %label.chat-footer__file
             = f.file_field :image, id: "message_image"
             = fa_icon "image"
