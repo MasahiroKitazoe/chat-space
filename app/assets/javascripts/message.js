@@ -24,17 +24,17 @@ $(function(){
   var group_id = gon.group_id
 
   function buildHTML(message){
-    if (message.image.url === null) {
+    if (message.image === null) {
       var message_body_html = `<p class='chat-message__body'>${message.body}</p>`
     } else{
       var message_body_html = `<p class='chat-message__body'>${message.body}</p>
                                <p class='chat-message__body'>
-                                 <img src="${message.image.url}"/>
+                                 <img src="${message.image}"/>
                                </p>
                                `
     }
 
-    if (message.image.url === null && message.body === "") {
+    if (message.image === null && message.body === "") {
       var html = ``
       alert('メッセージを入力してから送信してください')
     } else {
