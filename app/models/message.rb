@@ -7,7 +7,8 @@ class Message < ApplicationRecord
   validates :body, presence: true, unless: :image?
   validates :group_id, :user_id, presence: true
 
-  def self.format_posted_time(time)
+  def format_posted_time
+    time = self.created_at
     year = time.year
     mon  = time.month
     day  = time.day
