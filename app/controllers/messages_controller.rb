@@ -3,9 +3,17 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @group.messages.includes(:user)
+    if @messages.where('id > ?', params[:last_id]).present?
+      @messages = @messages.where('id > ?', params[:last_id])
+    elsif params[:last_id].present?
+      @messages = []
+    end
     @message = Message.new
-    @users = @group.users
     gon.group_id = @group.id
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create

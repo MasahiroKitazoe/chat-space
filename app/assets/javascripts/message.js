@@ -1,21 +1,23 @@
 $(function(){
+
+  var group_id = gon.group_id
+
   function buildHTML(message){
-    if (message.image.url === null) {
+    if (message.image === null) {
       var message_body_html = `<p class='chat-message__body'>${message.body}</p>`
     } else{
       var message_body_html = `<p class='chat-message__body'>${message.body}</p>
                                <p class='chat-message__body'>
-                                 <img src="${message.image.url}"/>
+                                 <img src="${message.image}"/>
                                </p>
                                `
     }
-    console.log(message.body);
 
-    if (message.image.url === null && message.body === "") {
+    if (message.image === null && message.body === "") {
       var html = ``
       alert('メッセージを入力してから送信してください')
     } else {
-    var html = `<li class='chat-message'>
+    var html = `<li class='chat-message' data='${message.id}'>
                   <div class='chat-message__header'>
                     <p class='chat-message__name'>${message.name}</p>
                     <p class='chat-message__time'>${message.created_at}</p>
@@ -30,7 +32,6 @@ $(function(){
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var group_id = gon.group_id
     $.ajax({
       type: "POST",
       url: `/groups/${group_id}/messages`,
@@ -46,13 +47,35 @@ $(function(){
       $('#message_image').val('')
       $('.chat-body').animate({scrollTop: $('.chat-body')[0].scrollHeight}, 'fast');
     })
-
     .fail(function(){
     alert('error');
     })
-
     .always(function(){
       $("#message-submit").removeAttr("disabled");
     });
   })
+
+  if (window.location.href.match(/.+\/groups\/\d+\/messages/)) {
+    setInterval(function(){
+
+      $.ajax({
+        type: "GET",
+        url: `/groups/${group_id}/messages`,
+        dataType: 'json',
+        data: {last_id: $('.chat-messages').find('.chat-message:last-child').attr('data')}
+      })
+      .done(function(messages){
+        if (messages.length !== 0) {
+          messages.forEach(function(message){
+            index_html = buildHTML(message);
+            $('.chat-messages').append(index_html)
+          });
+          $('.chat-body').animate({scrollTop: $('.chat-body')[0].scrollHeight}, 'fast');
+        }
+      })
+      .fail(function(){
+        alert('error');
+      })
+    }, 5000);
+  }
 });
