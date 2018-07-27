@@ -55,26 +55,28 @@ $(function(){
     });
   })
 
-  setInterval(function(){
-    var before_len = $('.chat-message').length
+  if (window.location.href.match(/.+\/groups\/\d+\/messages/)) {
+    setInterval(function(){
+      var before_len = $('.chat-message').length
 
-    $.ajax({
-      type: "GET",
-      url: `/groups/${group_id}/messages`,
-      dataType: 'json',
-      data: {lists_len: before_len}
-    })
-    .done(function(messages){
-      if (messages.length !== 0) {
-        messages.forEach(function(message){
-          index_html = buildHTML(message);
-          $('.chat-messages').append(index_html)
-        });
-        $('.chat-body').animate({scrollTop: $('.chat-body')[0].scrollHeight}, 'fast');
-      }
-    })
-    .fail(function(){
-      alert('error');
-    })
-  }, 5000);
+      $.ajax({
+        type: "GET",
+        url: `/groups/${group_id}/messages`,
+        dataType: 'json',
+        data: {lists_len: before_len}
+      })
+      .done(function(messages){
+        if (messages.length !== 0) {
+          messages.forEach(function(message){
+            index_html = buildHTML(message);
+            $('.chat-messages').append(index_html)
+          });
+          $('.chat-body').animate({scrollTop: $('.chat-body')[0].scrollHeight}, 'fast');
+        }
+      })
+      .fail(function(){
+        alert('error');
+      })
+    }, 5000);
+  }
 });

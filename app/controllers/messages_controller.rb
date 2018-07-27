@@ -39,9 +39,8 @@ class MessagesController < ApplicationController
       end
 
       def select_added_elements(current_messages, before_len)
-        current_len = current_messages.length - 1
-        before_len = before_len - 1
-        added_amount = current_len - before_len
+        added_messages =[]
+        added_amount = current_messages.length - before_len
         if added_amount == 1
           added_messages << current_messages[-1]
         else
