@@ -1,4 +1,7 @@
 $(function(){
+
+  var group_id = gon.group_id
+
   function buildHTML(message){
     if (message.image.url === null) {
       var message_body_html = `<p class='chat-message__body'>${message.body}</p>`
@@ -9,7 +12,6 @@ $(function(){
                                </p>
                                `
     }
-    console.log(message.body);
 
     if (message.image.url === null && message.body === "") {
       var html = ``
@@ -30,7 +32,6 @@ $(function(){
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var group_id = gon.group_id
     $.ajax({
       type: "POST",
       url: `/groups/${group_id}/messages`,
@@ -39,6 +40,7 @@ $(function(){
       processData: false,
       contentType: false
     })
+
     .done(function(data){
       var html = buildHTML(data);
       $('.chat-messages').append(html)
@@ -55,4 +57,26 @@ $(function(){
       $("#message-submit").removeAttr("disabled");
     });
   })
+
+  setInterval(function(){
+    $.ajax({
+      type: "GET",
+      url: `/groups/${group_id}/messages`,
+      dataType: 'json'
+    })
+
+    .done(function(messages){
+      if (messages.length !== 0) {
+        $('.chat-messages').empty()
+        messages.forEach(function(message){
+          index_html = buildHTML(message);
+          $('.chat-messages').append(index_html)
+        });
+      }
+    })
+
+    .fail(function(){
+      alert('error');
+    })
+  }, 5000);
 });

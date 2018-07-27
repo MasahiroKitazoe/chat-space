@@ -6,6 +6,10 @@ class MessagesController < ApplicationController
     @message = Message.new
     @users = @group.users
     gon.group_id = @group.id
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
