@@ -17,7 +17,7 @@ $(function(){
       var html = ``
       alert('メッセージを入力してから送信してください')
     } else {
-    var html = `<li class='chat-message'>
+    var html = `<li class='chat-message' data='${message.id}'>
                   <div class='chat-message__header'>
                     <p class='chat-message__name'>${message.name}</p>
                     <p class='chat-message__time'>${message.created_at}</p>
@@ -62,7 +62,7 @@ $(function(){
         type: "GET",
         url: `/groups/${group_id}/messages`,
         dataType: 'json',
-        data: {last_id: $('.chat-message').length}
+        data: {last_id: $('.chat-messages').find('.chat-message:last-child').attr('data')}
       })
       .done(function(messages){
         if (messages.length !== 0) {

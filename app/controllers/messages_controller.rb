@@ -3,12 +3,10 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @group.messages.includes(:user)
-    if params[:last_id].present?
-      if @messages.find(params[:last_id].to_i).present?
-        @messages = @messages.where('id > ?', params[:last_id])
-      else
-        @messages = []
-      end
+    if @messages.where('id > ?', params[:last_id]).present?
+      @messages = @messages.where('id > ?', params[:last_id])
+    elsif params[:last_id].present?
+      @messages = []
     end
     @message = Message.new
     gon.group_id = @group.id
