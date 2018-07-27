@@ -57,13 +57,12 @@ $(function(){
 
   if (window.location.href.match(/.+\/groups\/\d+\/messages/)) {
     setInterval(function(){
-      var before_len = $('.chat-message').length
 
       $.ajax({
         type: "GET",
         url: `/groups/${group_id}/messages`,
         dataType: 'json',
-        data: {lists_len: before_len}
+        data: {last_id: $('.chat-message').length}
       })
       .done(function(messages){
         if (messages.length !== 0) {

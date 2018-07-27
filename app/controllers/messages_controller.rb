@@ -3,11 +3,11 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @group.messages.includes(:user)
-    if params[:lists_len].present?
-      if @messages.length == params[:lists_len].to_i
-        return @messages = []
+    if params[:last_id].present?
+      if @messages.find(params[:last_id].to_i).present?
+        @messages = @messages.where('id > ?', params[:last_id])
       else
-        @messages = select_added_elements(@messages, params[:lists_len].to_i)
+        @messages = []
       end
     end
     @message = Message.new
@@ -36,18 +36,5 @@ class MessagesController < ApplicationController
 
       def set_group
         @group = Group.find(params[:group_id])
-      end
-
-      def select_added_elements(current_messages, before_len)
-        added_messages =[]
-        added_amount = current_messages.length - before_len
-        if added_amount == 1
-          added_messages << current_messages[-1]
-        else
-          (1..added_amount).each do |index|
-            added_messages << current_messages[-index]
-          end
-        end
-        return added_messages
       end
 end
