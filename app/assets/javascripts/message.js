@@ -80,6 +80,7 @@ $(function(){
   })
 
   setInterval(function(){
+    var before_len = $('.chat-message').length
     $.ajax({
       type: "GET",
       url: `/groups/${group_id}/messages`,
@@ -87,12 +88,17 @@ $(function(){
     })
 
     .done(function(messages){
-      if (messages.length !== 0) {
+      var after_len = messages.length
+      if (after_len !== 0) {
         $('.chat-messages').empty()
         messages.forEach(function(message){
           index_html = buildHTML(message);
+          console.log(index_html);
           $('.chat-messages').append(index_html)
         });
+      }
+      if (before_len !== after_len) {
+        $('.chat-body').animate({scrollTop: $('.chat-body')[0].scrollHeight}, 'fast');
       }
     })
 
