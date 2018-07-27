@@ -1,5 +1,26 @@
 $(function(){
 
+  function dateFormat(date) {
+    var year = date.getFullYear();
+    var mon = date.getMonth() + 1;
+    var day = date.getDate();
+    var hour = date.getHours();
+    var min = date.getMinutes();
+
+    if (mon < 10) {
+      mon = '0' + mon;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+    if (min < 10) {
+      min = '0' + min;
+    }
+
+    // フォーマット整形済みの文字列を戻り値にする
+    return year + '-' + mon + '-' + day + ' ' + hour + ':' + min;
+  }
+
   var group_id = gon.group_id
 
   function buildHTML(message){
@@ -20,7 +41,7 @@ $(function(){
     var html = `<li class='chat-message'>
                   <div class='chat-message__header'>
                     <p class='chat-message__name'>${message.name}</p>
-                    <p class='chat-message__time'>${message.created_at}</p>
+                    <p class='chat-message__time'>${dateFormat(new Date(message.created_at))}</p>
                   </div>
                     ${message_body_html}
                 </li>
