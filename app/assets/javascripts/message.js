@@ -3,6 +3,7 @@ $(function(){
   var group_id = gon.group_id
 
   function buildHTML(message){
+    console.log(message);
     if (message.image === null) {
       var message_body_html = `<p class='chat-message__body'>${message.body}</p>`
     } else{
