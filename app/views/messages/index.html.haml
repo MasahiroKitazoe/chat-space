@@ -7,7 +7,7 @@
         %h2= @group.name
         .chat-header__left__members= "Member : " + @group.show_group_member
       .chat-header__right
-        = link_to "Edit", edit_group_path(@group.id), class: "chat-header__right__edit--btn"
+        = link_to "Edit", edit_group_path(@group.id), class: "chat-header__right__edit--btn",  data: { turbolinks: false }
     .chat-body
       %ul.chat-messages
         = render @messages
